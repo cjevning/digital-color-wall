@@ -1,0 +1,72 @@
+
+/* entire container, keeps perspective */
+.flip-container {
+  /*perspective: 2em;*/
+  /*margin: 0.2em 0.1em;*/
+}
+  /* flip the pane when hovered */
+  .flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+  }
+/*
+.flip-container, .front, .back {
+  width: 1em;
+  height: 1em;
+}*/
+
+/* flip speed goes here */
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+
+  position: relative;
+  /*animation: spinner 200ms infinite linear;*/
+}
+
+/* hide back of pane during swap */
+.front, .back {
+  backface-visibility: hidden;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+  transform: rotateY(180deg);
+}
+
+.vertical.flip-container {
+  position: relative;
+}
+
+  .vertical .back {
+    transform: rotateX(180deg);
+  }
+
+  /*.vertical.flip-container .flipper {
+    transform-origin: 100% 0.5em;
+  }
+  */
+
+  .vertical.flip-container:hover .flipper {
+    transform: rotateX(-180deg);
+  }
+
+  @keyframes spinner {
+    from {
+    box-shadow: 0 10px 20px rgba( 0,0,0, 0.2 );
+    transform: rotateX( 0 ) rotateY( -360deg ); }
+    
+    to {
+    box-shadow: 0 10px 20px rgba( 0,0,0, 0.2 );
+    transform: rotateX( 360deg ) rotateY( -360deg ); }
+}
