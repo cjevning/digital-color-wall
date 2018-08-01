@@ -6,8 +6,8 @@ import logo from './logo.svg';
 import './App.css';
 import Tile from './Tile';
 
-const xTiles = 128;
-const yTiles = 16;
+const xTiles = 128//32//128;
+const yTiles = 16//4//16;
 
 class App extends Component {
   constructor(props) {
